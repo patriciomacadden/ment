@@ -31,7 +31,23 @@ Ment adds the following methods to your Rack app:
 * `::production?`/`#production?`: returns `true` if `ENV['RACK_ENV'] == 'production'`
 * `::test?`/`#test?`: returns `true` if `ENV['RACK_ENV'] == 'test'`
 
-### Using [Rack](https://github.com/rack/rack) directly
+### Using Ment directly
+
+```ruby
+require 'ment'
+
+proc = Proc.new do
+  if Ment.production?
+    [200, {}, ['This is production']]
+  else
+    [200, {}, ["The current environment is #{Ment.environment}"]]
+  end
+end
+
+run proc
+```
+
+### Using [Rack](https://github.com/rack/rack)
 
 ```ruby
 require 'ment'

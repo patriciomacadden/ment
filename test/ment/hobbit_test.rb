@@ -11,11 +11,23 @@ scope 'Hobbit integration' do
         assert_equal :development, HobbitApp.environment
       end
     end
+
+    test 'returns :development if there is no current environment' do
+      with_env(nil) do
+        assert_equal :development, HobbitApp.environment
+      end
+    end
   end
 
   scope '#environment' do
     test 'returns the current environment' do
       with_env('development') do
+        assert_equal :development, @app.to_app.class.environment
+      end
+    end
+
+    test 'returns :development if there is no current environment' do
+      with_env(nil) do
         assert_equal :development, @app.to_app.class.environment
       end
     end

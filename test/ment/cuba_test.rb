@@ -11,11 +11,23 @@ scope 'Cuba integration' do
         assert_equal :development, Cuba.environment
       end
     end
+
+    test 'returns :development if there is no current environment' do
+      with_env(nil) do
+        assert_equal :development, Cuba.environment
+      end
+    end
   end
 
   scope '#environment' do
     test 'returns the current environment' do
       with_env('development') do
+        assert_equal :development, @app.environment
+      end
+    end
+
+    test 'returns :development if there is no current environment' do
+      with_env(nil) do
         assert_equal :development, @app.environment
       end
     end
