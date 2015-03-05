@@ -117,4 +117,4 @@ end
 
 ## License
 
-See the [LICENSE](https://github.com/patriciomacadden/envi/blob/master/LICENSE).
+See the [LICENSE](https://github.com/patriciomacadden/ment/blob/master/LICENSE).
