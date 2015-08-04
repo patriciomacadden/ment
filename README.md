@@ -29,6 +29,7 @@ Ment adds the following methods to your Rack app:
 * `::environment`/`#environment`: returns the value of `ENV['RACK_ENV']`
 * `::development?`/`#development?`: returns `true` if `ENV['RACK_ENV'] == 'development'`
 * `::production?`/`#production?`: returns `true` if `ENV['RACK_ENV'] == 'production'`
+* `::staging?`/`#staging?`: returns `true` if `ENV['RACK_ENV'] == 'staging'`
 * `::test?`/`#test?`: returns `true` if `ENV['RACK_ENV'] == 'test'`
 
 ### Using Ment directly
