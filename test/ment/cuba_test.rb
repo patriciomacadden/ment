@@ -81,6 +81,30 @@ scope 'Cuba integration' do
     end
   end
 
+  scope '::staging?' do
+    test "returns true if ENV['RACK_ENV'] = :staging" do
+      with_env('staging') do
+        assert Cuba.staging?
+      end
+    end
+
+    test "returns false if ENV['RACK_ENV'] != :staging" do
+      assert !Cuba.staging?
+    end
+  end
+
+  scope '#staging?' do
+    test "returns true if ENV['RACK_ENV'] = :staging" do
+      with_env('staging') do
+        assert @app.staging?
+      end
+    end
+
+    test "returns false if ENV['RACK_ENV'] != :staging" do
+      assert !@app.staging?
+    end
+  end
+
   scope '::test?' do
     test "returns true if ENV['RACK_ENV'] = :test" do
       assert Cuba.test?
