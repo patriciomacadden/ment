@@ -11,7 +11,7 @@ module Ment
     (ENV['RACK_ENV'] || 'development').to_sym
   end
 
-  %w(development production test).each do |env|
+  %w(development production staging test).each do |env|
     define_method("#{env}?") { environment == env.to_sym }
   end
 end
